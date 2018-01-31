@@ -83,9 +83,29 @@ public class TransformationsTest {
         return points().zip(points(),(p1,p2) -> new Pair<>(p1,p2));
     }
 
+    private Gen<Pair<java.awt.Point,java.awt.Point>> pairOfPointsEqY() {
+        return pairOfIntegers().zip(integers().allPositive(),(pair,y) -> {
+            java.awt.Point p1 = new java.awt.Point(pair.getFirst(),y);
+            java.awt.Point p2 = new java.awt.Point(pair.getSecond(),y);
+            return new Pair<>(p1,p2);
+        });
+    }
+
+    private Gen<Pair<java.awt.Point,java.awt.Point>> pairOfPointsEqX() {
+        return integers().allPositive().zip(pairOfIntegers(),(x,pair) -> {
+            java.awt.Point p1 = new java.awt.Point(x, pair.getFirst());
+            java.awt.Point p2 = new java.awt.Point(x, pair.getSecond());
+            return new Pair<>(p1,p2);
+        });
+    }
+
     private Gen<java.awt.Point> points() {
+        return pairOfIntegers().map(p -> new java.awt.Point(p.getFirst(),p.getSecond()));
+    }
+
+    private Gen<Pair<Integer,Integer>> pairOfIntegers() {
         return integers().allPositive()
-            .zip(integers().allPositive(), (x,y) -> new java.awt.Point(x,y));
+            .zip(integers().allPositive(), (x,y) -> new Pair<>(x,y));
     }
     
 }
