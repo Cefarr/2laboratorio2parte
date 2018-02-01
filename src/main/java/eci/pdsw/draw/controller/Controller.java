@@ -26,6 +26,9 @@ import javax.naming.OperationNotSupportedException;
  * @author fchaves
  */
 public class Controller implements IController {
+    
+    private Comando comand;
+    
     private ElementType selectedElement = ElementType.Line;
     
     private final ShapeFactory shapeFactory = new ShapeFactory();
@@ -36,8 +39,15 @@ public class Controller implements IController {
     private Renderer renderer;
     
     public Controller() {
+
+        
     }
     
+    /**
+     * Recordar se debe modificar este add shape .... para ser llamado desde el comando, buscar en supercanvas
+     * @param p1
+     * @param p2 
+     */
     @Override
     public void addShapeFromScreenPoints(java.awt.Point p1,java.awt.Point p2) {
         Point mp1 = Point.newPoint(new Float(p1.x), new Float(p1.y));

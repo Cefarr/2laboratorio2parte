@@ -54,12 +54,13 @@ public class TransformationsTest {
     
         qt().forAll(linesController()
                 .describedAs((c) -> "Control de la rotacion de las piezas"+ c.getShapes().size()))
-                .check((controller) ->{
+                .check((controller) -> {
                 
                     int n = controller.getShapes().size();
-                    controller.rotateSelectedShape();           
+                    controller.rotateSelectedShape(90);           
+            return false;
                     
-                }
+                });
 
     }
     
@@ -76,11 +77,11 @@ public class TransformationsTest {
                 .check((controller) ->{
                 
                     int n = controller.getShapes().size();
-                    controller.rotateSelectedShape();           
-                    controller.rotateSelectedShape();           
+                    controller.rotateSelectedShape(90);           
+                    controller.rotateSelectedShape(90);           
 
-                           
-                }
+            return false;               
+                });
 
     }
         
@@ -97,10 +98,12 @@ public class TransformationsTest {
                 .check((controller) ->{
                 
                     int n = controller.getShapes().size();
-                    controller.rotateSelectedShape();           
-                    controller.rotateSelectedShape();           
-                    controller.rotateSelectedShape();           
-                }
+                    controller.rotateSelectedShape(90);           
+                    controller.rotateSelectedShape(90);           
+                    controller.rotateSelectedShape(90);           
+                    
+            return false;        
+                });
 
     }
     
@@ -117,14 +120,15 @@ public class TransformationsTest {
                 .check((controller) ->{
                 
                     int n = controller.getShapes().size();
-                    controller.rotateSelectedShape();           
-                    controller.rotateSelectedShape();           
-                    controller.rotateSelectedShape();
-                    controller.rotateSelectedShape();           
-                    controller.rotateSelectedShape();           
-                    controller.rotateSelectedShape();           
-                    controller.rotateSelectedShape();           
-                }
+                    controller.rotateSelectedShape(90);           
+                    controller.rotateSelectedShape(90);           
+                    controller.rotateSelectedShape(90);
+                    controller.rotateSelectedShape(90);           
+                    controller.rotateSelectedShape(90);           
+                    controller.rotateSelectedShape(90);           
+                    controller.rotateSelectedShape(90);           
+            return false;
+                });
 
     }
     
@@ -142,23 +146,7 @@ public class TransformationsTest {
                                   shapes.stream().filter((sj) -> si == sj ).count() == 1);
                 });
     }
-    /**
-     *Esta clase gira 90 grados una de las figuras seleccionadas, no necesita parametros y acepta cualquier figura.
-     * La prueba es para corroborar el funcionamiento del metodo de rotateSelectedShape.
-     * EL resultado esperado es que la ficha gire 90 grados con respecto a su posicion.
-     */
-    @Test
-    public void rotateTransformation90Grades(){
-    
-        qt().forAll(linesController()
-                .describedAs((c) -> "Control de la rotacion de las piezas"+ c.getShapes().size()))
-                .check((controller) ->{
-                
-                    int n = controller.getShapes().size();
-                    controller.rotateSelectedShape();           
-                }
 
-    }
     // Test cases generators
 
     /**
