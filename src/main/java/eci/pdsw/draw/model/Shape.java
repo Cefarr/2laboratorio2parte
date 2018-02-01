@@ -13,6 +13,7 @@ public abstract class Shape {
     private Point p1;
 
     private Point p2; 
+    private int gir=0;
 
     protected Shape(Point p1,Point p2) {
        this.p1 = p1;
@@ -29,6 +30,12 @@ public abstract class Shape {
     
     public Point getPoint2() {
         return p2;
+    }
+    public int getGir(){
+        return gir;
+    }
+    public void setGir(int g){
+        gir=g;
     }
     
     public void setPoint1(Point p1) {

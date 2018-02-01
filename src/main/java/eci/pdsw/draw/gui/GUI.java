@@ -56,6 +56,7 @@ public class GUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.undo();
+                
             }
             
         });

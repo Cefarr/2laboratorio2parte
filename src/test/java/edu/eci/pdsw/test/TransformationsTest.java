@@ -44,8 +44,91 @@ public class TransformationsTest {
                     return m == 2 * n;
                 });
     }
+    /**
+     *Esta clase gira 90 grados una de las figuras seleccionadas, no necesita parametros y acepta cualquier figura.
+     * La prueba es para corroborar el funcionamiento del metodo de rotateSelectedShape.
+     * EL resultado esperado es que la ficha gire 90 grados con respecto a su posicion.
+     */
+    @Test
+    public void rotateTransformation90Grades(){
+    
+        qt().forAll(linesController()
+                .describedAs((c) -> "Control de la rotacion de las piezas"+ c.getShapes().size()))
+                .check((controller) ->{
+                
+                    int n = controller.getShapes().size();
+                    controller.rotateSelectedShape();           
+                    
+                }
 
+    }
+    
+        /**
+     *Esta clase gira 180 grados una de las figuras seleccionadas, no necesita parametros y acepta cualquier figura.
+     * La prueba es para corroborar el funcionamiento del metodo de rotateSelectedShape.
+     * EL resultado esperado es que la ficha gire 180 grados con respecto a su posicion.
+     */
+    @Test
+    public void rotateTransformation180Grades(){
+    
+        qt().forAll(linesController()
+                .describedAs((c) -> "Control de la rotacion de las piezas"+ c.getShapes().size()))
+                .check((controller) ->{
+                
+                    int n = controller.getShapes().size();
+                    controller.rotateSelectedShape();           
+                    controller.rotateSelectedShape();           
 
+                           
+                }
+
+    }
+        
+        /**
+     *Esta clase gira 270 grados una de las figuras seleccionadas, no necesita parametros y acepta cualquier figura.
+     * La prueba es para corroborar el funcionamiento del metodo de rotateSelectedShape.
+     * EL resultado esperado es que la ficha gire 270 grados con respecto a su posicion.
+     */
+    @Test
+    public void rotateTransformation270Grades(){
+    
+        qt().forAll(linesController()
+                .describedAs((c) -> "Control de la rotacion de las piezas"+ c.getShapes().size()))
+                .check((controller) ->{
+                
+                    int n = controller.getShapes().size();
+                    controller.rotateSelectedShape();           
+                    controller.rotateSelectedShape();           
+                    controller.rotateSelectedShape();           
+                }
+
+    }
+    
+            /**
+     *Esta clase gira 360 grados una de las figuras seleccionadas, no necesita parametros y acepta cualquier figura.
+     * La prueba es para corroborar el funcionamiento del metodo de rotateSelectedShape.
+     * EL resultado esperado es que la ficha gire 360 grados con respecto a su posicion.
+     */
+    @Test
+    public void rotateTransformation360Grades(){
+    
+        qt().forAll(linesController()
+                .describedAs((c) -> "Control de la rotacion de las piezas"+ c.getShapes().size()))
+                .check((controller) ->{
+                
+                    int n = controller.getShapes().size();
+                    controller.rotateSelectedShape();           
+                    controller.rotateSelectedShape();           
+                    controller.rotateSelectedShape();
+                    controller.rotateSelectedShape();           
+                    controller.rotateSelectedShape();           
+                    controller.rotateSelectedShape();           
+                    controller.rotateSelectedShape();           
+                }
+
+    }
+    
+    
     @Test
     public void duplicateTestNotDuplicatedReferences() {
         qt().forAll(linesController()
@@ -59,7 +142,23 @@ public class TransformationsTest {
                                   shapes.stream().filter((sj) -> si == sj ).count() == 1);
                 });
     }
+    /**
+     *Esta clase gira 90 grados una de las figuras seleccionadas, no necesita parametros y acepta cualquier figura.
+     * La prueba es para corroborar el funcionamiento del metodo de rotateSelectedShape.
+     * EL resultado esperado es que la ficha gire 90 grados con respecto a su posicion.
+     */
+    @Test
+    public void rotateTransformation90Grades(){
+    
+        qt().forAll(linesController()
+                .describedAs((c) -> "Control de la rotacion de las piezas"+ c.getShapes().size()))
+                .check((controller) ->{
+                
+                    int n = controller.getShapes().size();
+                    controller.rotateSelectedShape();           
+                }
 
+    }
     // Test cases generators
 
     /**
@@ -107,5 +206,5 @@ public class TransformationsTest {
         return integers().allPositive()
             .zip(integers().allPositive(), (x,y) -> new Pair<>(x,y));
     }
-    
+   
 }

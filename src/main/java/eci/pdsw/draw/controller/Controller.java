@@ -42,7 +42,7 @@ public class Controller implements IController {
     public void addShapeFromScreenPoints(java.awt.Point p1,java.awt.Point p2) {
         Point mp1 = Point.newPoint(new Float(p1.x), new Float(p1.y));
         Point mp2 = Point.newPoint(new Float(p2.x), new Float(p2.y));
-                
+       
         ElementType actualElementType = getSelectedElementType();
     	setSelectedElementType(actualElementType);
         addShape(mp1, mp2);                 
@@ -119,8 +119,8 @@ public class Controller implements IController {
      */
     @Override
     public void rotateSelectedShape(Integer index) {
-        //NO IMPLEMENTADO
         
+
         //notificar a la capa de presentación
         notifyObservers();        
     }    
