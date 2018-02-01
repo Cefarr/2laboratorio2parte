@@ -120,7 +120,55 @@ public class Controller implements IController {
     @Override
     public void rotateSelectedShape(Integer index) {
         
-
+        double angulo = 90; //grados
+        double anguloRadianes = Math.toRadians(angulo);
+        int idx=index;
+        Shape prob=shapes.get(index);
+        
+        int pru=prob.getGir();
+        Point pp1=prob.getPoint1();
+        Point pp2=prob.getPoint2();
+        
+        float p1x=pp1.getX();
+        float p1y=pp1.getY();
+        float p2x=pp2.getX();
+        float p2y=pp2.getX();
+        switch (pru){
+            case 0:        p1x=pp1.getY()*1;        
+                           p1y=pp1.getX();
+                           p2x=pp2.getY()*1;        
+                           p2y=pp2.getX();                
+                           pp1.setX(p1x);
+                           pp1.setY(p1y);
+                           pp2.setX(p2x);
+                           pp2.setY(p2y);
+                           prob.setGir(1);
+                           break;
+           case 1:         p1x=pp1.getX()*-1;        
+                           p1y=pp1.getY()*-1;
+                           p2x=pp2.getX()*1;        
+                           p2y=pp2.getY()*-1;                
+                           pp1.setX(p1x);
+                           pp1.setY(p1y);
+                           pp2.setX(p2x);
+                           pp2.setY(p2y);
+                           prob.setGir(2);
+                           break;
+           case 2:         p1x=pp1.getY();        
+                           p1y=pp1.getX()*-1;
+                           p2x=pp2.getY();        
+                           p2y=pp2.getX()*-1;                
+                           pp1.setX(p1x);
+                           pp1.setY(p1y);
+                           pp2.setX(p2x);
+                           pp2.setY(p2y);
+                           prob.setGir(0);
+                           break;
+               
+        }
+         
+        prob.setPoint1(pp1);
+        prob.setPoint2(pp2); 
         //notificar a la capa de presentación
         notifyObservers();        
     }    
